@@ -11,13 +11,24 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
+//    @Bean
+//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+//        http.authorizeHttpRequests(auth -> {
+//            auth.requestMatchers("/api/v1/protected/greeting").authenticated();
+//            auth.requestMatchers("/api/v1/open/greeting").permitAll();
+//        }).formLogin(Customizer.withDefaults());
+//
+//        return http.build();
+//    }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests(auth -> {
             auth.requestMatchers("/api/v1/protected/greeting").authenticated();
             auth.requestMatchers("/api/v1/open/greeting").permitAll();
-        }).formLogin(Customizer.withDefaults());
+        }).oauth2Login(Customizer.withDefaults());
 
         return http.build();
     }
+
 }
