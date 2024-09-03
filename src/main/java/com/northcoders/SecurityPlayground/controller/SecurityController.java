@@ -30,4 +30,6 @@ public class SecurityController {
         return new ResponseEntity<>("Hey " + username + " " + githubUsername + "!", HttpStatus.OK);
     }
 
+//    @GetMapping("/h2-console")
+//    public static ResponseEntity<>
 }
